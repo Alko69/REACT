@@ -1,18 +1,19 @@
-import React from "react";
-import Wrapper from './Wrapper'
+const Car = ({color, name,year}) => {
 
-function Cars ({car,color}) {
+    const colorInfo = color ? <p>Couleur: {color}</p> : <p>Couleur: "Néant"</p>;
+    
 
-    const colorInfo = color ? (<p>Couleur: {color} </p>) : (<p>Couleur manquante </p>)
-    let brand = <p>{car}</p> 
-    return (
-    <Wrapper>
-        {brand}
-        {colorInfo}
-    </Wrapper>
-    );
+    if (name) {
+        return (
+            <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto'} }>
+                <p>Marque: { name }</p>
+                <p>Année: {year}</p>
+                {colorInfo}
+            </div>
+        )
+    }
+
+    // return null // ce return est Facultatif
 }
 
-export default Cars  
-
-
+export default Car

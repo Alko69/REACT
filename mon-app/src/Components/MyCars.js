@@ -1,32 +1,40 @@
-import React, {Component} from "react";
-import Cars from './Cars';
-import Wrapper from "./Wrapper";
-import MyHeader from "./MyHeader";
+import { Component } from 'react'
+import Car from './Cars'
+import Welcome from './Welcome'
 
-class MyCars extends Component {
+class Mycars extends Component {
 
     state = {
-        car: ['Ford', 'Mercedes', 'Fiat']
+        voitures: [
+            {name:"Ford", color:"red", year:"2000"},
+            {name:"Mercedes", color:"black", year:"2010"},
+            {name:"Fiat", color:"blue", year:"1995"}
+        ]
+    }
+    
+    old = () => {
+        const updatedState = this.state.voitures.map((x) => {
+            return x.year -=10;
+        });
+        this.setState ({
+            updatedState
+        })
     }
 
-    render () {
-        const {title} = this.props;
-        const {color} = this.props;
+
+    render() {
+        const [ford,mercedes,fiat] = this.state.voitures;
         return (
-        <div>
-            <Wrapper>
-                <MyHeader myStyle = {color}>
-                    {title}
-                    <p>lorem ipsum azodi azdhnua frf af</p>
-                </MyHeader>
-            </Wrapper>
-            <Cars car={this.state.car[0]} />
-            <Cars car={this.state.car[1]} />
-            <Cars car={this.state.car[2]} />
-        </div>
-        );
+            <div>
+                <h1>{this.props.title}</h1>
+                <button onClick={this.old}>Vieillir</button>
+                <Car name={ford.name} color={ford.color} year={ford.year}/>
+                <Car name={mercedes.name} color={mercedes.color} year={mercedes.year}/>
+                <Car name={fiat.name} color={fiat.color} year={fiat.year}/>                        
+                <Welcome></Welcome>
+            </div>
+        )
     }
 }
 
-
-export default MyCars;
+export default Mycars
