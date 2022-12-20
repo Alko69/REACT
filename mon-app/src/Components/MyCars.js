@@ -25,14 +25,14 @@ class Mycars extends Component {
     render() {
         const [ford,mercedes,fiat] = this.state.voitures;
         return (
-            <div>
+            <>
                 <h1>{this.props.title}</h1>
                 <button onClick={this.old}>Vieillir</button>
                 <Car name={ford.name} color={ford.color} year={ford.year}/>
                 <Car name={mercedes.name} color={mercedes.color} year={mercedes.year}/>
                 <Car name={fiat.name} color={fiat.color} year={fiat.year}/>                        
                 <Welcome></Welcome>
-            </div>
+            </>
         )
     }
 }

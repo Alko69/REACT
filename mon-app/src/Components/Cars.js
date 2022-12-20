@@ -13,7 +13,6 @@ const Car = ({color, name,year}) => {
         )
     }
 
-    // return null // ce return est Facultatif
 }
 
 export default Car
